@@ -12,13 +12,13 @@ if keypressed then begin tkn:=readkey;end;
 if ((tkn<>'w')or(tkn<>'W'))or((tkn<>'s')or(tkn<>'S'))then begin
 if (b=0) then begin gotoxy(20,hg+1);write(' ');end;
 if (b=1) then begin gotoxy(20,hg-1);write(' ');end;
-gotoxy(20,hg);write('@');if (a=1) then delay(50)end;
+gotoxy(20,hg);write('@');if (a=1) then delay(17)end;
 if ((tkn = 'w') or (tkn = 'W')) then begin b:=0;gotoxy(20,hg+1);write(' ');
-gotoxy(20,hg);write('0');if (a=1) then begin delay(50);
+gotoxy(20,hg);write('0');if (a=1) then begin delay(17);
 gotoxy(20,hg);write(' ');end;hg:=hg-1;
 if (hg = 0) then dead:=true;end;
 if ((tkn = 's') or (tkn = 'S')) then begin b:=1;gotoxy(20,hg-1);write(' ');
-gotoxy(20,hg);write('0');if (a=1) then begin delay(50);
+gotoxy(20,hg);write('0');if (a=1) then begin delay(17);
 gotoxy(20,hg);write(' ');end;hg:=hg+1;
 if (hg = 24) then dead:=true;end;
 if (tc<>0) then begin
@@ -28,13 +28,11 @@ until dead or (a=2);end;
 
 function day : integer;
 begin d:=0;
-if (fp>=50) then begin delay(100-fp);fp:=fp-50;end;
-if (fp<50) then begin
 repeat
 if (fp = d) then up;
 d:=d+1;
 delay(1);
-until (d = 50);end;end;
+until (d = 17);end;end;
 
 function h1 (a,c:integer):integer;
 var b,d:integer;
@@ -202,7 +200,7 @@ end;
 begin
 clrscr;
 textbackground(7);textcolor(0);
-dead:=false;hg:=13;fp:=0;tkn:='s';
+dead:=false;hg:=13;fp:=0;tkn:='a';
 aa:=rdm;delay(77);dd:=rdm;delay(77);
 bb:=rdm;delay(77);ee:=rdm;delay(77);
 cc:=rdm;delay(77);ff:=rdm;delay(77);
